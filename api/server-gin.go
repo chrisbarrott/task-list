@@ -1,5 +1,7 @@
 /*
-	HERE I WAS TRYING TO USE THE GIN GONIC ROUTE, BUT RUNNING OUT OF TIME TO GET IT WORKING WITH MY CLI APP
+	HERE I WAS TRYING TO USE THE GIN GONIC ROUTE
+	BUT RUNNING OUT OF TIME TO GET IT WORKING WITH MY CLI APP
+	SO IGNROE THIS CODE AS ITS IN PROGRESS AND NOT WORKING
 */
 
 package api
@@ -10,10 +12,6 @@ import (
 )
 
 var Tasks []Task
-
-func main() {
-	RunServer()
-}
 
 func RunServer() {
 	r := gin.Default()
@@ -59,9 +57,9 @@ func NewTask(c *gin.Context) {
 	})
 }
 
-//func getHandler(c *gin.Context) {
-//	c.JSON(200, Tasks) // Return nil
-//}
+func getHandler(c *gin.Context) {
+	c.JSON(200, Tasks) // Return nil
+}
 
 //func UpdateTask() {
 
