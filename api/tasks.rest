@@ -1,0 +1,13 @@
+GET http://localhost:8080/tasks
+
+### Create task
+POST http://localhost:8080/tasks 
+Content-Type: application/json
+
+{
+    "task":"ring kate",
+    "status": "Backlog"
+}
+
+### Create task
+DELETE  http://localhost:8080/tasks/951c67e2-8765-460c-86a1-0525511c8cc4
