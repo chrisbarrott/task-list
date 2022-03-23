@@ -7,6 +7,9 @@ This is a task list manager. With this tool you will be able to:
 - Update the status of a task
 - Remove a task once its in a completed status
 
+# Install
+go get github.com/chrisbarrott/task-list
+
 # Issues
 To compile this package on Windows, you must have the gcc compiler installed.
 
