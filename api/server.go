@@ -1,3 +1,10 @@
+/*
+
+// THIS WAS TESTING THAT DIDNT GET ANYWHERE
+// THIS CREATES TASKS IN A WEB SERVER, BUT COULDNT DO MUCH MORE THAN RUN THEM IN A JSON FILE
+
+*/
+
 package api
 
 import (
@@ -8,6 +15,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// task object
 type Task struct {
 	ID     uuid.UUID `json:"id"`
 	Task   string    `json:"task"`
@@ -19,6 +27,7 @@ type Server struct {
 	tasks []Task
 }
 
+// create a router for localhost
 func NewServer() *Server {
 	s := &Server{
 		Router: mux.NewRouter(),
@@ -32,17 +41,20 @@ func (s *Server) routes() {
 	s.HandleFunc("/tasks", s.listTasks()).Methods("GET")
 	s.HandleFunc("/tasks", s.createTask()).Methods("POST")
 	s.HandleFunc("/tasks/{id}", s.completeTask()).Methods("DELETE")
-	//s.HandleFunc("/tasks/{id}", s.updateTask()).Methods("PUT")
+	//s.HandleFunc("/tasks/{id}", s.updateTask()).Methods("PUT") // not worked this out yet
 }
 
 func (s *Server) createTask() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var t Task
+
+		// handle a bad request
 		if err := json.NewDecoder(r.Body).Decode(&t); err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
 
+		// creates a new UUID
 		t.ID = uuid.New()
 		s.tasks = append(s.tasks, t)
 
@@ -61,6 +73,8 @@ func (s *Server) listTasks() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// set the header
 		w.Header().Set("Content-Type", "application/json")
+
+		// handle broken server
 		if err := json.NewEncoder(w).Encode(s.tasks); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return

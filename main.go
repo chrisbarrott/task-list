@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/task-list/api"
 	"github.com/task-list/cmd"
 	"github.com/task-list/data"
 )
@@ -10,6 +11,6 @@ func main() {
 	cmd.Execute()
 	//srv := api.NewServer()
 	//http.ListenAndServe(":8080", srv)
-	//api.StartServer()
+	api.NewServer()
 	//api.RunServer()
 }
