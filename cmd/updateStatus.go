@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/chrisbarrott/task-list/data"
 	"github.com/spf13/cobra"
-	"github.com/task-list/data"
 )
 
 // updateStatusCmd represents the updateStatus command

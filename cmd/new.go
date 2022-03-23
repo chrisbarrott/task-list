@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/chrisbarrott/task-list/data"
 	"github.com/manifoldco/promptui"
 	"github.com/spf13/cobra"
-	"github.com/task-list/data"
 )
 
 type PromptContent struct {

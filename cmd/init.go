@@ -1,8 +1,8 @@
 package cmd
 
 import (
+	"github.com/chrisbarrott/task-list/data"
 	"github.com/spf13/cobra"
-	"github.com/task-list/data"
 )
 
 // initCmd represents the init command

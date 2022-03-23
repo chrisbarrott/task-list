@@ -1,4 +1,4 @@
-module github.com/task-list
+module github.com/chrisbarrott/task-list
 
 go 1.17
 

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/task-list/api"
-	"github.com/task-list/cmd"
-	"github.com/task-list/data"
+	"github.com/chrisbarrott/task-list/api"
+	"github.com/chrisbarrott/task-list/cmd"
+	"github.com/chrisbarrott/task-list/data"
 )
 
 func main() {
