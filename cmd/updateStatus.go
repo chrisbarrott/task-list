@@ -13,7 +13,7 @@ var updateStatusCmd = &cobra.Command{
 	Short: "Update the status of a task",
 	Long:  `Update the status of a task.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		updateTaskStatus()
+		UpdateTaskStatus()
 	},
 }
 
@@ -21,7 +21,7 @@ func init() {
 	taskCmd.AddCommand(updateStatusCmd)
 }
 
-func updateTaskStatus() {
+func UpdateTaskStatus() {
 	// task update prompt
 	taskPromptContent := PromptContent{
 		"Please provide a task name",

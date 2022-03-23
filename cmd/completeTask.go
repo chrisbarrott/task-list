@@ -11,7 +11,7 @@ var completeTaskCmd = &cobra.Command{
 	Short: "Complete and remove task",
 	Long:  `Complete and remove task.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		removeCompletedTask()
+		RemoveCompletedTask()
 	},
 }
 
@@ -19,7 +19,7 @@ func init() {
 	taskCmd.AddCommand(completeTaskCmd)
 }
 
-func removeCompletedTask() {
+func RemoveCompletedTask() {
 	taskPromptContent := PromptContent{
 		"Please provide a task name",
 		"What task would you like to delete? ",

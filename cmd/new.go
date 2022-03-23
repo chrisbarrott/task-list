@@ -23,7 +23,7 @@ var newCmd = &cobra.Command{
 	Short: "Creates a new task",
 	Long:  `Creates a new task.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		createNewTask()
+		CreateNewTask()
 	},
 }
 
@@ -104,7 +104,7 @@ func PromptGetSelect(pc PromptContent) string {
 
 }
 
-func createNewTask() {
+func CreateNewTask() {
 	// task name return prompt
 	taskPromptContent := PromptContent{
 		"Please provide a task",

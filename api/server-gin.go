@@ -1,10 +1,19 @@
+/*
+	HERE I WAS TRYING TO USE THE GIN GONIC ROUTE, BUT RUNNING OUT OF TIME TO GET IT WORKING WITH MY CLI APP
+*/
+
 package api
 
 import (
+	"github.com/chrisbarrott/task-list/cmd"
 	"github.com/gin-gonic/gin"
 )
 
 var Tasks []Task
+
+func main() {
+	RunServer()
+}
 
 func RunServer() {
 	r := gin.Default()
@@ -33,6 +42,8 @@ func ListTasks(c *gin.Context) {
 
 func NewTask(c *gin.Context) {
 	var reqBody Task
+
+	cmd.CreateNewTask()
 
 	if err := c.ShouldBindJSON(&reqBody); err != nil {
 		c.JSON(422, gin.H{
