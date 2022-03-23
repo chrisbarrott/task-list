@@ -10,7 +10,7 @@ This is a task list manager. With this tool you will be able to:
 # Issues
 To compile this package on Windows, you must have the gcc compiler installed.
 
-Install a Windows gcc toolchain. <br>
+<b>Install a Windows gcc toolchain. </b><br>
 Add the bin folder to the Windows path, if the installer did not do this by default.<br>
 Open a terminal for the TDM-GCC toolchain, which can be found in the Windows Start menu.<br>
 Navigate to your project folder and run the go build ... command for this package.<br>
