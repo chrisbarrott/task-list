@@ -7,17 +7,22 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/task-list/api"
+	"github.com/task-list/cmd"
+	"github.com/task-list/data"
 )
 
 var Tasks []api.Task
 
 func main() {
-	//data.OpenDatabase()
-	//cmd.Execute()
+	data.OpenDatabase()
+	cmd.Execute()
 	//srv := api.NewServer()
 	//http.ListenAndServe(":8080", srv)
 	//api.StartServer()
+	//runServer()
+}
 
+func runServer() {
 	r := gin.Default()
 
 	taskRoutes := r.Group("/tasks")
