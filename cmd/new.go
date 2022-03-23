@@ -31,11 +31,13 @@ var newCmd = &cobra.Command{
 	},
 }
 
+// initialise
 func init() {
 	taskCmd.AddCommand(newCmd)
-
 }
 
+// these is using examples off the promptui repo
+// this should help validate the responses from the user
 func PromptGetInput(pc PromptContent) string {
 	validate := func(input string) error {
 		if len(input) <= 0 {
@@ -44,6 +46,7 @@ func PromptGetInput(pc PromptContent) string {
 		return nil
 	}
 
+	// colour code prompts
 	templates := &promptui.PromptTemplates{
 		Prompt:  "{{ . }}",
 		Valid:   "{{ . | green }}",
@@ -51,18 +54,21 @@ func PromptGetInput(pc PromptContent) string {
 		Success: "{{ . | bold }}",
 	}
 
+	// create the prompt return
 	prompt := promptui.Prompt{
 		Label:     pc.label,
 		Templates: templates,
 		Validate:  validate,
 	}
 
+	// execute prompmpt
 	result, err := prompt.Run()
 	if err != nil {
 		fmt.Printf("Prompt failed %v\n", err)
 		os.Exit(1)
 	}
 
+	// logging return
 	fmt.Printf("Input: %s\n", result)
 	return result
 }
@@ -71,9 +77,11 @@ func PromptGetSelect(pc PromptContent) string {
 	items := []string{"Backlog", "In Progress", "Completed"}
 	index := -1
 
+	// declare vars
 	var result string
 	var err error
 
+	// for furture use for if we allow add others
 	for index < 0 {
 		prompt := promptui.SelectWithAdd{
 			Label:    pc.label,
@@ -88,30 +96,31 @@ func PromptGetSelect(pc PromptContent) string {
 		}
 	}
 
+	// handle errors
 	if err != nil {
 		fmt.Printf("Prompt failed %v\n", err)
 		os.Exit(1)
 	}
 
+	// return logging
 	fmt.Printf("Input: %s\n", result)
-
 	return result
 
 }
 
 func createNewTask() {
+	// task name return prompt
 	taskPromptContent := PromptContent{
 		"Please provide a task",
 		"What task would you like to create? ",
 	}
-
 	task := PromptGetInput(taskPromptContent)
 
+	// status return prompt
 	statusPromptContent := PromptContent{
 		"Please provide a status",
 		fmt.Sprintf("What is the status of this task %s? ", task),
 	}
-
 	status := PromptGetSelect(statusPromptContent)
 
 	// get the unix time of now

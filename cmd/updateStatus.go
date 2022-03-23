@@ -26,19 +26,20 @@ func init() {
 }
 
 func updateTaskStatus() {
+	// task update prompt
 	taskPromptContent := PromptContent{
 		"Please provide a task name",
 		"What task would you like to update? ",
 	}
-
 	task := PromptGetInput(taskPromptContent)
 
+	// new status prompt
 	statusPromptContent := PromptContent{
 		"Please provide a status",
 		fmt.Sprintf("What is the status of this task %s? ", task),
 	}
-
 	status := PromptGetSelect(statusPromptContent)
 
+	// update SQL
 	data.UpdateStatusSQL(task, status)
 }
