@@ -21,6 +21,10 @@ Currently this can be ran as 2 different applications, either a local cobra cli 
  srv := api.NewServer()<br>
  http.ListenAndServe(":8080", srv)<br></i>
  <p>
+To run this there is a file called api/tasks.rest which allows you to run GET, POST and DELETEs.
+	 To use this simply click the "send request" hyperlink within the file in VS code.
+	 
+<p>
 
 ## Install
 go get github.com/chrisbarrott/task-list
